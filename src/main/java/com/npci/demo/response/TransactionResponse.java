@@ -50,6 +50,4 @@ public class TransactionResponse {
 		return "TransactionResponse [trans_id=" + trans_id + ", name=" + name + ", amount=" + amount + "]";
 	}
 
-	
-
 }

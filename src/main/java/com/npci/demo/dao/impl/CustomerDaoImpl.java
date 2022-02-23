@@ -21,8 +21,8 @@ public class CustomerDaoImpl extends NameParameterJdbcDaoSupportclass implements
 		// TODO Auto-generated method stub
 		List<TransactionResponse> transaction = null;
 		try {
-			String query = "select t.trans_id,c.name,t.trans_amount as amount,t.to_c_id " + "from customer_details as c "
-					+ "join transaction as t " + "on c.c_id = t.c_id;";
+			String query = "select t.trans_id,c.name,t.trans_amount as amount,t.to_c_id "
+					+ "from customer_details as c " + "join transaction as t " + "on c.c_id = t.c_id;";
 			transaction = getNamedParameterJdbcTemplate().getJdbcOperations().query(query,
 					new BeanPropertyRowMapper<TransactionResponse>(TransactionResponse.class));
 		} catch (Exception e) {
@@ -56,15 +56,15 @@ public class CustomerDaoImpl extends NameParameterJdbcDaoSupportclass implements
 		// TODO Auto-generated method stub
 		List<TransDetails> transaction = null;
 		try {
-			String sql = "select t.trans_id,c.name,t.trans_amount as amount,t.to_c_id,t.trans_date,c.balance " + "from customer_details as c "
-					+ "join transaction as t " + "on c.c_id = t.c_id";
+			String sql = "select t.trans_id,c.name,t.trans_amount as amount,t.to_c_id,t.trans_date,c.balance "
+					+ "from customer_details as c " + "join transaction as t " + "on c.c_id = t.c_id";
 			transaction = getNamedParameterJdbcTemplate().getJdbcOperations().query(sql,
 					new BeanPropertyRowMapper<TransDetails>(TransDetails.class));
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getStackTrace();
 		}
-		
+
 		return transaction;
 	}
 
@@ -73,8 +73,9 @@ public class CustomerDaoImpl extends NameParameterJdbcDaoSupportclass implements
 		// TODO Auto-generated method stub
 		List<TransDetails> transaction = null;
 		try {
-			String sql = "select t.trans_id,c.name,t.trans_amount as amount,t.to_c_id,t.trans_date,c.balance " + "from customer_details as c "
-					+ "join transaction as t " + "on c.c_id = t.c_id order by t.trans_amount desc limit 2";
+			String sql = "select t.trans_id,c.name,t.trans_amount as amount,t.to_c_id,t.trans_date,c.balance "
+					+ "from customer_details as c " + "join transaction as t "
+					+ "on c.c_id = t.c_id order by t.trans_amount desc limit 2";
 			transaction = getNamedParameterJdbcTemplate().getJdbcOperations().query(sql,
 					new BeanPropertyRowMapper<TransDetails>(TransDetails.class));
 		} catch (Exception e) {
@@ -83,10 +84,5 @@ public class CustomerDaoImpl extends NameParameterJdbcDaoSupportclass implements
 		}
 		return transaction;
 	}
-	
-
-	
-
-
 
 }

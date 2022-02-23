@@ -7,10 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "customer_details")
-public class Customers{
+public class Customers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "c_id")
@@ -119,7 +118,4 @@ public class Customers{
 				+ balance + "]";
 	}
 
-	
-	
-	
 }

@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "customer_details")
 public class CustomerDetails {
@@ -118,6 +117,5 @@ public class CustomerDetails {
 				+ ", email=" + email + ", phone=" + phone + ", age=" + age + ", address=" + address + ", balance="
 				+ balance + "]";
 	}
-	
-	
+
 }

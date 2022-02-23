@@ -9,6 +9,7 @@ import com.npci.demo.entity.Customers;
 import com.npci.demo.exceptions.ResourceNotFoundException;
 import com.npci.demo.repository.CustomerDetailsRepo;
 import com.npci.demo.repository.CustomerRepository;
+import com.npci.demo.repository.TransactionRepo;
 import com.npci.demo.response.TransDetails;
 import com.npci.demo.response.TransSum;
 import com.npci.demo.response.TransactionResponse;
@@ -23,6 +24,8 @@ public class CustomerServiceImpl implements CustomerService {
 	CustomerRepository customerRepository;
 	@Autowired
 	CustomerDetailsRepo customerDetailsRepo;
+	@Autowired
+	TransactionRepo transactionRepo;
 
 	@Override
 	public List<Customers> getAllCustomers() {
@@ -31,10 +34,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customers getById(int c_id) {
+	public Customers getById(int c_id) throws Exception {
 		// TODO Auto-generated method stub
-		return customerRepository.findById(c_id)
-				.orElseThrow(() -> new ResourceNotFoundException("User not Found with id: " + c_id));
+		return customerRepository.findById(c_id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
 	}
 

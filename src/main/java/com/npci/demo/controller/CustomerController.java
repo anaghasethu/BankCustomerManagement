@@ -1,6 +1,7 @@
 package com.npci.demo.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +42,7 @@ public class CustomerController {
 
 	// display customer of id
 	@GetMapping("/getbyid/{id}")
-	public Customers getById(@PathVariable("id") int c_id) {
+	public Customers getById(@PathVariable("id") int c_id) throws Exception {
 		Customers customers = null;
 		customers = customerService.getById(c_id);
 
@@ -144,8 +145,8 @@ public class CustomerController {
 		return new ResponseEntity<List<TransDetails>>(customers, HttpStatus.OK);
 
 	}
-	
-	//get top 2 transactions
+
+	// get top 2 transactions
 	@GetMapping("/toptransactions")
 	public ResponseEntity<List<TransDetails>> getTop() {
 		List<TransDetails> transaction = null;
@@ -155,6 +156,9 @@ public class CustomerController {
 			// TODO: handle exception
 			e.getStackTrace();
 		}
-		return new ResponseEntity<List<TransDetails>>(transaction,HttpStatus.OK);
+		return new ResponseEntity<List<TransDetails>>(transaction, HttpStatus.OK);
 	}
+
+	// add transaction
+
 }

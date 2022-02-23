@@ -15,7 +15,7 @@ public interface CustomerService {
 
 	public List<Customers> getAllCustomers();
 
-	public Customers getById(int c_id);
+	public Customers getById(int c_id) throws Exception;
 
 	public List<Customers> getbyLoc(String address);
 
@@ -32,4 +32,5 @@ public interface CustomerService {
 	public List<TransDetails> getTransBal();
 
 	public List<TransDetails> getTop();
+
 }

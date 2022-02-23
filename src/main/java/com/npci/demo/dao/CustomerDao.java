@@ -15,5 +15,4 @@ public interface CustomerDao {
 	public List<TransDetails> getTransBal();
 
 	public List<TransDetails> getTop();
-
 }
