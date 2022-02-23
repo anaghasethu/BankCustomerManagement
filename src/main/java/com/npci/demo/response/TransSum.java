@@ -1,24 +1,28 @@
 package com.npci.demo.response;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
-public class TransactionResponse {
+public class TransSum {
 
 	private int trans_id;
 	private String name;
 	private float amount;
+	private Date trans_date;
 
-	public TransactionResponse() {
+	public TransSum() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TransactionResponse(int trans_id, String name, float amount) {
+	public TransSum(int trans_id, String name, float amount, Date trans_date) {
 		super();
 		this.trans_id = trans_id;
 		this.name = name;
 		this.amount = amount;
+		this.trans_date = trans_date;
 	}
 
 	public int getTrans_id() {
@@ -45,11 +49,18 @@ public class TransactionResponse {
 		this.amount = amount;
 	}
 
-	@Override
-	public String toString() {
-		return "TransactionResponse [trans_id=" + trans_id + ", name=" + name + ", amount=" + amount + "]";
+	public Date getTrans_date() {
+		return trans_date;
 	}
 
-	
+	public void setTrans_date(Date trans_date) {
+		this.trans_date = trans_date;
+	}
+
+	@Override
+	public String toString() {
+		return "TransSum [trans_id=" + trans_id + ", name=" + name + ", amount=" + amount + ", trans_date=" + trans_date
+				+ "]";
+	}
 
 }

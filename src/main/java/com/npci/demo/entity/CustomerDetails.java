@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer_details")
-public class Customers{
+public class CustomerDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "c_id")
@@ -30,12 +30,12 @@ public class Customers{
 
 	private float balance;
 
-	public Customers() {
+	public CustomerDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customers(int customer_id, String npci_account, String name, String email, String phone, int age,
+	public CustomerDetails(int customer_id, String npci_account, String name, String email, String phone, int age,
 			String address, float balance) {
 		super();
 		this.customer_id = customer_id;
@@ -114,12 +114,10 @@ public class Customers{
 
 	@Override
 	public String toString() {
-		return "Customers [customer_id=" + customer_id + ", npci_account=" + npci_account + ", name=" + name
+		return "CustomerDetails [customer_id=" + customer_id + ", npci_account=" + npci_account + ", name=" + name
 				+ ", email=" + email + ", phone=" + phone + ", age=" + age + ", address=" + address + ", balance="
 				+ balance + "]";
 	}
-
-	
 	
 	
 }
