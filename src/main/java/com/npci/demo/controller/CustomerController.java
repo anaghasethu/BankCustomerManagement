@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.npci.demo.entity.CustomerDetails;
 import com.npci.demo.entity.Customers;
+import com.npci.demo.entity.Transaction;
 import com.npci.demo.response.TransDetails;
 import com.npci.demo.response.TransSum;
 import com.npci.demo.response.TransactionResponse;
@@ -23,6 +24,7 @@ import com.npci.demo.service.CustomerService;
 @RequestMapping("/api/customers")
 public class CustomerController {
 
+	
 	@Autowired
 	CustomerService customerService;
 
@@ -160,5 +162,14 @@ public class CustomerController {
 	}
 
 	// add transaction
-
+	@PostMapping("/addtransaction")
+	public ResponseEntity<HttpStatus> addTransaction(@RequestBody Transaction transaction) {
+		try {
+			customerService.addTransaction(transaction);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }

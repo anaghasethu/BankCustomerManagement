@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.npci.demo.entity.CustomerDetails;
 import com.npci.demo.entity.Customers;
+import com.npci.demo.entity.Transaction;
 import com.npci.demo.response.TransDetails;
 import com.npci.demo.response.TransSum;
 import com.npci.demo.response.TransactionResponse;
@@ -32,5 +33,7 @@ public interface CustomerService {
 	public List<TransDetails> getTransBal();
 
 	public List<TransDetails> getTop();
+	
+	public void addTransaction(Transaction transaction) throws Exception;
 
 }

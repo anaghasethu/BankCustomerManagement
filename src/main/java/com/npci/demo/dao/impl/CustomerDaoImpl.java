@@ -75,7 +75,7 @@ public class CustomerDaoImpl extends NameParameterJdbcDaoSupportclass implements
 		try {
 			String sql = "select t.trans_id,c.name,t.trans_amount as amount,t.to_c_id,t.trans_date,c.balance "
 					+ "from customer_details as c " + "join transaction as t "
-					+ "on c.c_id = t.c_id order by t.trans_amount desc limit 2";
+					+ "on c.c_id = t.c_id order by t.trans_amount desc limit 1";
 			transaction = getNamedParameterJdbcTemplate().getJdbcOperations().query(sql,
 					new BeanPropertyRowMapper<TransDetails>(TransDetails.class));
 		} catch (Exception e) {
